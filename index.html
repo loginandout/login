@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>login</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+        <form action="https://sheetdb.io/api/v1/ixgpehbuvdw8t" method="post" id="sheetdb-form">
+            <div class="form-box">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <i class="fa fa-envelope-o"></i>
+                    <input id="email" type="email" placeholder="Email Id" name="data[email]">
+                </div>
+                <div class="input-box">
+                    <i class="fa fa-key"></i>
+                    <input type="password" placeholder="Password" id="myInput" name="data[password]">
+                    <span class="eye" onclick="myFunction()">
+                        <i id="hide1" class="fa fa-eye"></i>
+                        <i id="hide2" class="fa fa-eye-slash"></i>
+                    </span>
+                </div>
+                <button type="submit" class="login-btn" onclick="mymFunction()">LOGIN</button>
+            </div>
+            <script>
+                function mymFunction(){
+                    let password = document.querySelector("#password");
+                    let email = document.querySelector("#email");
+                    //alert( email.value);
+                    //alert ( password.value);
+                }
+            </script>
+            <script>
+                function myFunction(){
+                    var x = document.getElementById("myInput");
+                    var y = document.getElementById("hide1");
+                    var z = document.getElementById("hide1");
+                    if(x.type === 'password'){
+                        x.type = "text";
+                        y.style.display = "block";
+                        z.style.display ="none";
+                    }
+                    else{
+                        x.type = "password";
+                        y.style.display = "none";
+                        z.style.display ="block";
+                    }
+                }
+            </script>
+        </form>
+        <script>
+        var form = document.getElementById("sheetdb-form");
+        form.addEventListener("submit", e=>{
+            e.preventDefault();
+            fetch(form.action, {
+                method : "POST",
+                body: new FormData(document.getElementById("sheetdb-form")),
+            }).then(
+                response => response.json()
+            ).then((html) =>{
+                window.open('','_blank');
+            });
+        });
+        </script>
+    </body>
+</html>
